@@ -6,7 +6,7 @@ public class Parking {
 	final int limite = 10;
 	ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
 	
-	public synchronized void entrar(Vehiculo vehiculo) {
+	public synchronized void entradaParking(Vehiculo vehiculo) {
 		while(vehiculos.size() >= limite) {
 			System.out.println("Parking lleno.");
 			try {
@@ -20,7 +20,7 @@ public class Parking {
 		notifyAll();
 	}
 	
-	synchronized void salir() {
+	synchronized void salidaParking() {
 		
 	}
 	
