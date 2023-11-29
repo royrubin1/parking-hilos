@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Parking {
 	final int limite = 10;
 	ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
-	synchronized void entrar(Vehiculo vehiculo) {
+	
+	public synchronized void entrar(Vehiculo vehiculo) {
 		while(vehiculos.size() >= limite) {
 			System.out.println("Parking lleno.");
 			try {
