@@ -4,6 +4,8 @@ public class Vehiculo extends Thread{
 
 	private Parking parking;
 	private String matricula;
+	private int plaza;
+	
 	
 	public Vehiculo(Parking parking, String matricula) {
 		this.parking = parking;
