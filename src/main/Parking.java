@@ -20,8 +20,8 @@ public class Parking {
 				 parking[i] = vehiculo;
 				 break;
 			 }
-			 
 		 }
+		 
 		notifyAll();
 	}
 	

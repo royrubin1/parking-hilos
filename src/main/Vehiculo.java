@@ -12,6 +12,8 @@ public class Vehiculo extends Thread{
 		this.matricula = matricula;
 	}
 
+	
+	
 	public String getIdVehiculo() {
 		return matricula;
 	}
