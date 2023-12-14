@@ -19,7 +19,7 @@ public class Parking {
 		}
 		parking[plaza] = vehiculo;
 		plaza = -1;
-		notifyAll();
+		
 	}
 
 	synchronized void salidaParking(Vehiculo vehiculo) {

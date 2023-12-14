@@ -4,12 +4,13 @@ public class Vehiculo extends Thread{
 
 	private Parking parking;
 	private String matricula;
+	private GenerarMatricula generarMatricula = new GenerarMatricula();
 	private int plaza;
 	
 	
-	public Vehiculo(Parking parking, String matricula) {
+	public Vehiculo(Parking parking) {
 		this.parking = parking;
-		this.matricula = matricula;
+		this.matricula = generarMatricula.generarMatricula();
 	}
 
 	
