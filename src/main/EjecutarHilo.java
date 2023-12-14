@@ -13,7 +13,9 @@ public class EjecutarHilo {
 
 	public void arrancarCoches() {
 		for (int i = 0; i < numero_coches; i++) {
-			new Vehiculo(parking).start();
+			Vehiculo vehiculo = new Vehiculo(parking);
+			vehiculo.start();
+			System.out.println("Coche "+vehiculo.getIdVehiculo()+" se ha arrancado");
 		}
 	}
 }

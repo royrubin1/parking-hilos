@@ -18,8 +18,10 @@ public class Parking {
 			e.printStackTrace();
 		}
 		parking[plaza] = vehiculo;
-		plaza = -1;
 		
+		System.out.println(
+				"El coche " + vehiculo.getIdVehiculo() + " ha entrado al parking y se sitúa en la plaza " + plaza);
+		plaza = -1;
 	}
 
 	synchronized void salidaParking(Vehiculo vehiculo) {
@@ -27,10 +29,14 @@ public class Parking {
 		for (int i = 0; i < parking.length; i++) {
 			if (parking[i] == vehiculo) {
 				parking[i] = null;
+				System.out.println(
+						"El coche " + vehiculo.getIdVehiculo() + " ha salido de la plaza " + i + " del parking.");
+
 				break;
 			}
 		}
 		notifyAll();
+
 	}
 
 	private int siLleno() {

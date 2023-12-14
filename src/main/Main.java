@@ -6,6 +6,8 @@ public class Main {
 	public static void main(String[] args) {
 		Parking parking = new Parking(numPlazas);
 		EjecutarHilo ejecutarhilos = new EjecutarHilo(numCoches, parking);
+		
 		ejecutarhilos.arrancarCoches();
+		
 	}
 }
