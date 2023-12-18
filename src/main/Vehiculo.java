@@ -28,10 +28,11 @@ public class Vehiculo extends Thread {
 				parking.salidaParking(this);
 
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				 System.err.println("El hilo del vehículo " + getIdVehiculo() + " fue interrumpido.");
+	             e.printStackTrace();
+		
 			}
 
 		}
 	}
-
 }

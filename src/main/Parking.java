@@ -11,17 +11,18 @@ public class Parking {
 	}
 
 	public synchronized void entradaParking(Vehiculo vehiculo) throws InterruptedException {
-		int plaza = -1;
-		try {
-			plaza = esperaPlaza();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		parking[plaza] = vehiculo;
-		
-		System.out.println(
-				"El coche " + vehiculo.getIdVehiculo() + " ha entrado al parking y se sitúa en la plaza " + plaza);
-		plaza = -1;
+	    int plaza = -1;
+	    try {
+	        plaza = esperaPlaza();
+	    } catch (InterruptedException e) {
+	        System.err.println("Error al esperar una plaza: " + e.getMessage());   
+	        throw e;
+	    }
+	    parking[plaza] = vehiculo;
+	    
+	    System.out.println(
+	            "El coche " + vehiculo.getIdVehiculo() + " ha entrado al parking y se sitúa en la plaza " + plaza);
+	    plaza = -1;
 	}
 
 	synchronized void salidaParking(Vehiculo vehiculo) {
@@ -49,10 +50,15 @@ public class Parking {
 	}
 
 	private int esperaPlaza() throws InterruptedException {
-		while (siLleno() == -1) {
-			wait();
-		}
-		return siLleno();
+	    while (siLleno() == -1) {
+	        try {
+	            wait();
+	        } catch (InterruptedException e) {
+	            System.err.println("El hilo fue interrumpido mientras esperaba una plaza: " + e.getMessage());
+	            throw e;
+	        }
+	    }
+	    return siLleno();
 	}
 
 	public int getLimite() {

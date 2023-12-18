@@ -12,10 +12,15 @@ public class EjecutarHilo {
 	}
 
 	public void arrancarCoches() {
-		for (int i = 0; i < numero_coches; i++) {
-			Vehiculo vehiculo = new Vehiculo(parking);
-			vehiculo.start();
-			System.out.println("Coche "+vehiculo.getIdVehiculo()+" se ha arrancado");
-		}
+	    for (int i = 0; i < numero_coches; i++) {
+	        try {
+	            Vehiculo vehiculo = new Vehiculo(parking);
+	            vehiculo.start();
+	            System.out.println("Coche " + vehiculo.getIdVehiculo() + " se ha arrancado");
+	        } catch (Exception e) {
+	            System.err.println("Error al arrancar el coche: " + e.getMessage());	           
+	        }
+	    }
 	}
+
 }
